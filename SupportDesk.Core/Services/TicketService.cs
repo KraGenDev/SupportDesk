@@ -26,6 +26,8 @@ namespace SupportDesk.Core.Services
             if(id == Guid.Empty) 
                 throw new ArgumentNullException("Ticket id can't be empty", nameof(id));
 
+            // додати перевірку на відсутність НЕ закритих тасок у цієї категорії
+
             await _repository.DeleteAsync(id);
         }
 

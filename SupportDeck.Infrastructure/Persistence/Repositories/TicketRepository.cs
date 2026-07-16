@@ -40,7 +40,7 @@ namespace SupportDeck.Infrastructure.Persistence.Repositories
             if(entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            var ticket = await _context.Tickets.FindAsync(entity);
+            var ticket = await _context.Tickets.FindAsync(entity.Id);
 
             if(ticket == null)
                 throw new KeyNotFoundException(nameof(entity));

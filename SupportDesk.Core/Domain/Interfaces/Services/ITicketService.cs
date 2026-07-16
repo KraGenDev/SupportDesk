@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SupportDesk.Core.Domain.Interfaces.Services
 {
-    internal interface ITicketService
+    public interface ITicketService
     {
         Task AddTicketAsync(Ticket ticket);
         Task UpdateTicketAsync(Ticket ticket);

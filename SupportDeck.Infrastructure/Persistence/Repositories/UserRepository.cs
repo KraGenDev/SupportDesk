@@ -40,7 +40,7 @@ namespace SupportDeck.Infrastructure.Persistence.Repositories
             if(entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            var user = await _context.Users.FindAsync(entity);
+            var user = await _context.Users.FindAsync(entity.Id);
 
             if (user == null)
                 throw new KeyNotFoundException($"User {entity.Name} not found");
