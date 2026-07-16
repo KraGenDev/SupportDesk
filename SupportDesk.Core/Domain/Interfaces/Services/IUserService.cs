@@ -4,7 +4,8 @@ namespace SupportDesk.Core.Domain.Interfaces.Services
 {
     public interface IUserService
     {
-        Task AddUserAsync(User user);
+        Task AddUserAsync(User user,User currentUser);
+        Task RegisterNewUserAsync(User user);
         Task DeleteUserAsync(Guid id);
         Task UpdateUserAsync(User user);
         Task<IEnumerable<User>> GetAllUsersAsync();
