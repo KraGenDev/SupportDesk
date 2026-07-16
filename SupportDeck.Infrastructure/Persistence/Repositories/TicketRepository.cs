@@ -1,16 +1,16 @@
 ﻿using SupportDesk.Core.Domain.Interfaces.Repositories;
 using SupportDesk.Core.Domain.Models;
 
-namespace SupportDeck.Infrastructure.Repositories
+namespace SupportDeck.Infrastructure.Persistence.Repositories
 {
-    internal class CategoryRepository : IRepository<Category>
+    internal class TicketRepository : IRepository<Ticket>
     {
-        public Task AddAsync(Category entity)
+        public Task AddAsync(Ticket entity)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(Category entity)
+        public Task DeleteAsync(Ticket entity)
         {
             throw new NotImplementedException();
         }
@@ -20,12 +20,12 @@ namespace SupportDeck.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Category>> GetAsync()
+        public Task<IEnumerable<Ticket>> GetAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Category entity)
+        public Task UpdateAsync(Ticket entity)
         {
             throw new NotImplementedException();
         }

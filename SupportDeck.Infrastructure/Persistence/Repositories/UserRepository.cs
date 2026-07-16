@@ -1,7 +1,7 @@
 ﻿using SupportDesk.Core.Domain.Interfaces.Repositories;
 using SupportDesk.Core.Domain.Models;
 
-namespace SupportDeck.Infrastructure.Repositories
+namespace SupportDeck.Infrastructure.Persistence.Repositories
 {
     public class UserRepository : IRepository<User>
     {
