@@ -1,33 +1,59 @@
-﻿using SupportDesk.Core.Domain.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using SupportDesk.Core.Domain.Interfaces.Repositories;
 using SupportDesk.Core.Domain.Models;
 
 namespace SupportDeck.Infrastructure.Persistence.Repositories
 {
-    internal class TicketRepository : IRepository<Ticket>
+    public class TicketRepository : IRepository<Ticket>
     {
-        public Task AddAsync(Ticket entity)
+        private readonly AppDbContext _context;
+
+        public TicketRepository(AppDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteAsync(Ticket entity)
+        public async Task AddAsync(Ticket entity)
         {
-            throw new NotImplementedException();
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+
+            await _context.Tickets.AddAsync(entity);    
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var ticket = await _context.Tickets.FindAsync(id);
+
+            if(ticket == null)
+                throw new KeyNotFoundException($"Ticket with Id:{id} not found");
+
+            _context.Tickets.Remove(ticket);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<Ticket>> GetAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<IEnumerable<Ticket>> GetAsync() => await _context.Tickets.ToListAsync();
 
-        public Task UpdateAsync(Ticket entity)
+        public async Task UpdateAsync(Ticket entity)
         {
-            throw new NotImplementedException();
+            if(entity == null)
+                throw new ArgumentNullException(nameof(entity));
+
+            var ticket = await _context.Tickets.FindAsync(entity);
+
+            if(ticket == null)
+                throw new KeyNotFoundException(nameof(entity));
+
+            ticket.Status = entity.Status;
+            ticket.Text = entity.Text;
+            ticket.LastUpdate = entity.LastUpdate;
+            ticket.Costumer = entity.Costumer;
+            ticket.Comments = entity.Comments;
+            ticket.Category = entity.Category;
+            ticket.CreatetAt = entity.CreatetAt;
+
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -4,7 +4,7 @@ using SupportDesk.Core.Domain.Models;
 
 namespace SupportDeck.Infrastructure.Persistence.Repositories
 {
-    internal class CategoryRepository : IRepository<Category>
+    public class CategoryRepository : IRepository<Category>
     {
         private readonly AppDbContext _context;
 
