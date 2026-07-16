@@ -38,6 +38,7 @@ ScaffoldingReadMe.txt
 
 # dotenv environment variables file
 .env
+.env.local
 
 # Others
 ~$*
@@ -55,3 +56,73 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# ============================
+# Visual Studio specific
+# ============================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# ReSharper / Rider
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+.idea/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# ============================
+# Секрети та локальні конфіги
+# ============================
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+*.pfx
+*.pem
+
+# ============================
+# EF Core
+# ============================
+# Міграції НЕ ігноруємо (вони мають бути в git), ігноруємо тільки локальні snapshot-кеші, якщо є
+*.db
+*.db-shm
+*.db-wal
+
+# ============================
+# Docker
+# ============================
+docker-compose.override.yml
+.dockerignore.local
+
+# ============================
+# Frontend (Vue / Node)
+# ============================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.local
+
+# ============================
+# OS-специфічні сміттєві файли
+# ============================
+.DS_Store
+Thumbs.db
+desktop.ini
